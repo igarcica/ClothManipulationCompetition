@@ -1,10 +1,8 @@
 ---
-layout: home
-title: Cloth Manipulation Challenge
+title: Welcome to my website
+feature_image: "https://picsum.photos/1300/400?image=989"
+feature_text: |
+  ## Hello world
 ---
 
-Welcome! This is the website for our research project on cloth manipulation.
-
-- 📄 [Paper PDF](link)
-- 📁 [Dataset](link)
-- 💻 [Code](link)
+There isn't much going on here yet, but watch this space
