@@ -1,0 +1,230 @@
+
+<html>
+<head>
+
+<title>Enric Corona</title>
+<!--<link href="stylesheet.css" rel="stylesheet" type="text/css">
+-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script language="JavaScript">
+  function ShowHide(divId) {
+    $(divId).slideToggle(200);
+  }
+</script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="container">
+
+<br />
+<br />
+<h1 style="margin-left:-20px; margin-right:-20px;">Structured 3D Features for Reconstructing Relightable and Animatable Avatars</h1>
+<p style="text-align:center; font-size: 18px">
+<a href="https://enriccorona.github.io/">Enric Corona</a>, &nbsp;
+<a href="https://scholar.google.com/citations?user=af68sKkAAAAJ">Mihai Zanfir</a>, &nbsp;
+<a href="https://research.google/people/107250/">Thiemo Alldieck</a>,
+</p><p style="text-align:center; font-size: 18px; margin-top: -10px;">
+<a href="https://research.google/people/107659/">Eduard Gabriel Bazavan</a>, &nbsp;
+<a href="https://scholar.google.es/citations?user=8lmzWycAAAAJ">Andrei Zanfir</a>, &nbsp;
+<a href="https://research.google/people/CristianSminchisescu/">Cristian Sminchisescu</a>
+</b> </p>
+<h2 align="center">CVPR 2023</h2>
+
+
+<!--<p style="text-align:center; font-size: 18px">-->
+</b>
+
+<p style="text-align:center; font-size: 18px">
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://arxiv.org/abs/2212.06820">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
+    Paper</a> &nbsp; &nbsp;
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://enriccorona.github.io/s3f/">
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">description</span> &nbsp;
+    Project</a> &nbsp; &nbsp;
+<a style="position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 14px;
+    padding: 12px 12px 12px 12px;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 130px;
+    font-weight: 600;" 
+    href="https://www.youtube.com/watch?v=mcZGcQ6L-2s">  
+    <span style="font-family: 'Material Icons';font-size:22px;margin:-6px;">play_circle_filled</span> &nbsp;
+    Video</a>
+<!-- https://materializecss.com/icons.html -->
+</p>
+
+<img src="s3f_gif.gif"  style="width:70%;display: block;margin:auto; outline: 1px solid white;">
+
+<br />
+<br />
+
+<h3>Abstract</h3>
+
+<br />
+
+<p>
+We introduce Structured 3D Features, a model based on a novel implicit 3D representation that pools pixel-aligned image features onto dense 3D points sampled from a parametric, statistical human mesh surface. The 3D points have associated semantics and can move freely in 3D space. This allows for optimal coverage of the person of interest, beyond just the body shape, which in turn, additionally helps modeling accessories, hair, and loose clothing. Owing to this, we present a complete 3D transformer-based attention framework which, given a single image of a person in an unconstrained pose, generates an animatable 3D reconstruction with albedo and illumination decomposition, as a result of a single end-to-end model, trained semi-supervised, and with no additional postprocessing. 
+</p>
+<p>
+We show that our S3F model surpasses the previous state-of-the-art on various tasks, including monocular 3D reconstruction, as well as albedo and shading estimation. Moreover, we show that the proposed methodology allows novel view synthesis, relighting, and re-posing the reconstruction, and can naturally be extended to handle multiple input images (e.g. different views of a person, or the same view, in different poses, in video). Finally, we demonstrate the editing capabilities of our model for 3D virtual try-on applications.
+</p>
+
+
+<br />
+<iframe src="https://youtube.com/embed/mcZGcQ6L-2s?autoplay=1&mute=1" style="display:block;width:80%;margin:auto;height:26vw;">
+</iframe>
+
+<br />
+<br />
+
+<h3>How do Structured 3D Features work?</h3>
+
+<br />
+<img src="s3f_method.png" style="max-width:100%;">
+
+<p>
+
+</p><p>
+In this paper we introduce 3D Structure Features (S3F), a flexible extension to image features (e.g. pixel-aligned), specifically designed to tackle the task of 3D human reconstruction and provide more flexibility during and after digitization. S3F store local features on ordered sets of points around the body surface, taking advantage of the geometric body prior. As body models do not usually represent hair or loose clothing, it is difficult to recover accurate body parameters for images inthe-wild. To this end, instead of relying too much on the geometric body prior, our model freely moves 3D body points independently to cover areas that are not well represented by the prior. This process results in our novel S3Fs, and is trained without explicit supervision only using reconstruction losses as signals.
+</p>
+<p>
+Given an input point, we aggregate representations from the set of points and their features using a transformer architecture, and obtain per-point signed distance and albedo color. Finally, we can relight the reconstruction using the predicted albedo and an illumination code. We assume perspective projection to obtain more natural reconstructions, with correct proportions.
+</p>
+
+<br />
+<br />
+
+<h3>Results</h3>
+
+<br />
+<h4>Monocular 3D Human Reconstruction:</h4>
+
+<img src="geometry.gif" style="width:70%;display: block;margin:auto">
+<p>
+The proposed approach can take images with people in unconstrained body poses and reconstruct details such as loose clothing or hair (See the paper for more examples). Moreover, the reconstructions can be animated or relighted.
+</p>
+
+<br />
+<br />
+
+<h4>Shading estimation:</h4>
+
+<img src="shading.gif" style="width:70%;display: block;margin:auto">
+<p>
+Our method recovers albedo and shading given each input image, and is robust to challenging poses or in-the-wild images.
+</p>
+
+<br />
+<br />
+
+<h3>Applications</h3>
+
+<h4> 3D Human Relighting:</h4>
+<!--
+<img src="lvd_image2.png" style="max-width:40%;float:right;margin-left:20px;">-->
+
+<img src="s3f_relighting.gif" style="width:80%;display: block;margin:auto; clip-path: polygon(0% 12%, 100% 12%, 100% 100%, 0% 100%);margin-top:-20px;">
+
+<p>
+After predicting albedo, we relight the 3D reconstructions using different illumination codes. All reconstructions are relighted consistently.
+</p>
+
+<h4> 3D Human Animation:</h4>
+<img src="s3f_animation.gif" style="width:80%;display: block;margin:auto; clip-path: polygon(0% 16%, 100% 16%, 100% 100%, 0% 100%);margin-top:-20px;">
+
+<p>
+The proposed Structured 3D Features are located near the body and inherit the properties of parametric body models, such as skinning weights. Therefore, after pooling per-point representations in the original image, we can pose them to new poses and animate reconstructions, just from a single input image.
+</p>
+
+<h4> 3D Virtual try-on:</h4>
+<img src="s3f_try_on.gif" style="width:80%;display: block;margin:auto;clip-path: polygon(0% 12%, 100% 12%, 100% 100%, 0% 100%);margin-top:-20px;">
+
+<p>
+Given an image of a target person, we identify S3Fs that project inside upper-body cloth segmentation masks, and replace their feature vectors for those obtained from other subjects. This leads to cloth retargeting and could be useful for 3D virtual try-on applications. Please watch video for more examples and details.
+</p>
+
+<br />
+<br />
+<br />
+
+<h3>Publication</h3>
+
+<br />
+<br />
+
+
+<div class="row"> <div class="col-md-3"><img style="width:120%;margin-left:-20px;" alt src="s3f_gif_web.gif"> </div><div class="col-md-9"><h4>Structured 3D Features for Reconstructing Relightable and Animatable Avatars</h4><h5>Enric Corona, Mihai Zanfir, Thiemo Alldieck, Eduard Gabriel Bazavan, Andrei Zanfir and Cristian Sminchisescu</h5><h5>in <i>IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2023 </i> </h5><h5>
+<a href="https://enriccorona.github.io/s3f/">Project Page</a>&nbsp;&nbsp;&nbsp;
+<a href="https://arxiv.org/abs/2212.06820">Paper</a>&nbsp;&nbsp;&nbsp;
+<a href="https://arxiv.org/abs/2212.06820">Supplementary</a>&nbsp;&nbsp;&nbsp;
+<a href="https://www.youtube.com/watch?v=mcZGcQ6L-2s">Video</a>&nbsp;&nbsp;&nbsp;
+<a onclick="javascript:ShowHide('#bibtex')" href="javascript:;">Bibtex</a></h5>
+<pre class='citation' id='bibtex' style="DISPLAY: none">
+@inproceedings{corona2023s3f,
+    Author = {Corona, Enric and Zanfir, Mihai and Alldieck, Thiemo and Gabriel Bazavan, Eduard and Zanfir, Andrei and Sminchisescu, Cristian}
+    Title = {Structured 3D Features for Reconstructing Relightable and Animatable Avatars},
+    Year = {2023},
+    booktitle = {CVPR},
+}
+</pre>
+</div></div>
+
+<br />
+
+<h3>Citation</h3>
+<pre class='citation'>
+@inproceedings{corona2023s3f,
+    Author = {Corona, Enric and Zanfir, Mihai and Alldieck, Thiemo and Gabriel Bazavan, Eduard and Zanfir, Andrei and Sminchisescu, Cristian}
+    Title = {Structured 3D Features for Reconstructing Relightable and Animatable Avatars},
+    Year = {2023},
+    booktitle = {CVPR},
+}
+</pre>
+</div></div>
+</body>
+</html>
+
